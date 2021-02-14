@@ -27,23 +27,6 @@ end
 
 
 def add_supply_to_memorial_day(holiday_hash, supply)
-  # again, holiday_hash is the same as the ones above
-  # add the second argument to the memorial day array
-  # {
-  #   :winter => {
-  #     :christmas => ["Lights", "Wreath"],
-  #     :new_years => ["Party Hats"]
-  #   },
-  #   :summer => {
-  #     :fourth_of_july => ["Fireworks", "BBQ"]
-  #   },
-  #   :fall => {
-  #     :thanksgiving => ["Turkey"]
-  #   },
-  #   :spring => {
-  #     :memorial_day => ["BBQ"]
-  #   }
-  # }
   holiday_hash.each do |season, holiday|
     if season == :spring
       holiday.each do |holiday, festivity|
@@ -79,11 +62,10 @@ def all_supplies_in_holidays(holiday_hash)
     holiday.each do |holiday, festivity|
       array = holiday.to_s.split("_")
       empty_array = []
-        array.each do |x|
-          empty_array << x.capitalize!
-        end
+      array.each do |x|
+        empty_array << x.capitalize!
+      end
       holiday = empty_array.join(" ")
-
       festivity = festivity.join(", ")
       puts "  #{holiday}: #{festivity}"
     end
@@ -93,11 +75,28 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  # again, holiday_hash is the same as the ones above
+  # add the second argument to the memorial day array
+  # {
+  #   :winter => {
+  #     :christmas => ["Lights", "Wreath"],
+  #     :new_years => ["Party Hats"]
+  #   },
+  #   :summer => {
+  #     :fourth_of_july => ["Fireworks", "BBQ"]
+  #   },
+  #   :fall => {
+  #     :thanksgiving => ["Turkey"]
+  #   },
+  #   :spring => {
+  #     :memorial_day => ["BBQ"]
+  #   }
+  # }
   array = []
   holiday_hash.each do |season, holiday|
     holiday.each do |holiday, festivity|
       festivity.each do |festivity|
-       if festivity == "BBQ"
+        if festivity == "BBQ"
           array << holiday
         end
       end
